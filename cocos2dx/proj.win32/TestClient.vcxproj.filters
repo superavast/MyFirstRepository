@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Online">
+      <UniqueIdentifier>{bc04c894-6a74-4b3f-81f0-116dcd1a5875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Online\CMD">
+      <UniqueIdentifier>{9cbd6586-a545-43c7-80b5-8a153aa31562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Online\DataInput">
+      <UniqueIdentifier>{f9dc4e53-37ae-423d-8c65-e208e5862acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\base">
+      <UniqueIdentifier>{2a43e7b2-2a13-4cf4-82bc-0c04bcc15317}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\stdafx.cpp" />
+    <ClCompile Include="..\Classes\Tool.cpp" />
+    <ClCompile Include="..\Classes\Online\DataInput\CinStream.cpp">
+      <Filter>Classes\Online\DataInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\DataInput\CoutStream.cpp">
+      <Filter>Classes\Online\DataInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\BaseDownCMD.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\BaseUpCMD.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\CMD\CmdMaker.cpp">
+      <Filter>Classes\Online\CMD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\connection.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\NetWorkNode.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\ODSocket.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\SocketManager.cpp">
+      <Filter>Classes\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\GE_Base.cpp">
+      <Filter>Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\GE_Utils.cpp">
+      <Filter>Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Online\CMD\CMD_User_LoginGame_up.cpp">
+      <Filter>Classes\Online\CMD</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Top.h" />
+    <ClInclude Include="..\Classes\GameConstant.h" />
+    <ClInclude Include="..\Classes\GameDefine.h" />
+    <ClInclude Include="..\Classes\GameHead.h" />
+    <ClInclude Include="..\Classes\Res.h" />
+    <ClInclude Include="..\Classes\ShareHead.h" />
+    <ClInclude Include="..\Classes\Singleton.h" />
+    <ClInclude Include="..\Classes\stdafx.h" />
+    <ClInclude Include="..\Classes\Tool.h" />
+    <ClInclude Include="..\Classes\Online\DataInput\CinStream.h">
+      <Filter>Classes\Online\DataInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\DataInput\CoutStream.h">
+      <Filter>Classes\Online\DataInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\BaseDownCMD.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\BaseUpCMD.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\CMD\CmdMaker.h">
+      <Filter>Classes\Online\CMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\conn_exception.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\connection.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\NetWorkNode.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\ODSocket.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\OnlineGobal.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\OnlineGobal.hpp">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\SocketManager.h">
+      <Filter>Classes\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\GE_Utils.h">
+      <Filter>Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\GE_Base.h">
+      <Filter>Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Online\CMD\CMD_User_LoginGame_up.h">
+      <Filter>Classes\Online\CMD</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

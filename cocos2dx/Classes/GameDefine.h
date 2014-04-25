@@ -1,0 +1,607 @@
+// #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+// #include <winsock2.h>
+// #endif
+
+#ifndef __GAMEDEFINE_H__
+#define	__GAMEDEFINE_H__
+#include "Top.h"
+#include "Tool.h"
+#include "MobClickCpp.h"//
+#include "UmengFunction.h"//
+
+#define FONT_SIZE_SMALLERE          12
+#define FONT_SIZE_SMALL				14
+#define FONT_SIZE_MIDDLE			16
+#define FONT_SIZE_BIG				18
+#define FONT_SIZE_BIGER             20
+typedef unsigned char byte;
+
+#define SERVER_VER             10
+
+#define FONT_NAME_NORMAL           "Arial"
+#define FONT_NAME                  "Thonburi"
+
+//
+//#define WHITE                      255,255,255
+//#define RED                        255,0,0
+//#define GREYYELLOW                 225,170,88
+//#define GREEN1                     4,251,48
+//#define YELLOW1                    223,225,116
+//#define YELLOW2                    251,250,2
+//#define BLUE1                      3,43,138
+//#define BLUE2                      0,30,255
+//#define YELLOW3                    255,253,48
+//#define PURPLE                     67,54,230
+//#define PINK                       244,62,202
+
+
+#define CH_STRING(str)  stringToCH(str).c_str()
+#ifndef max
+#define max(a,b)            (((a) > (b)) ? (a) : (b))
+#endif
+
+#ifndef min
+#define min(a,b)            (((a) < (b)) ? (a) : (b))
+#endif
+
+#define SCRIPT_MAP_TAG   9900
+enum
+{
+	TouchPriorityMAX = -1000,
+
+	TouchPriorityMenuButtonZ = -200,
+	TouchPriorityColorZ=-180,
+	TouchPriorityMenuButton = -150,
+    TouchPriorityMenuButtonS = -140,
+	TouchPriorityColor=-128,
+	TouchPriorityMenu=-100,
+
+	TouchPriorityButton = -80,
+
+	TouchPriorityMIN = 0,
+
+};//按钮菜单的优先级
+
+enum{
+	SCENE_ID_NULL = -1,
+	SCENE_ID_LOAD,
+	SCENE_ID_LOGIN,
+    SCENE_ID_CARTOON,
+	SCENE_ID_GAME,
+	SCENE_ID_SCENARIO,
+};//SCENE_ID; 
+
+enum{
+	ZORDER_MIN = -1,
+	G_Z_NULL = 0,//空
+	G_Z_MAP,//地图+人物
+	G_Z_EFFECT,//特效层
+	G_Z_WEATHER,//天气层
+	G_Z_UI,//主界面ui层
+	G_Z_DIALOG,//对话层
+	G_Z_COLOR,//半透明隔离层
+	G_Z_MENU,
+	G_Z_FIGHT,
+	G_Z_FIGHTRESULT,
+	G_Z_MENUZ,
+	G_Z_ACTOR,
+	G_Z_INTERFACE,
+	G_Z_SLOT,
+	G_Z_TSK,//弹出框
+	G_Z_MESSAGE,//消息框
+	G_Z_SCRIPT,//脚本
+	G_Z_LIMIT=100,//屏蔽
+	ZORDER_MAX=2000
+};//GAMESCENE_Z;
+
+enum
+{
+	G_ID_MAP=1,
+	G_ID_WEATHER,
+	G_ID_COLOR,
+};//GAMESCENE_ID
+enum
+{
+	ITEM_MATERIAL=0,//材料
+	ITEM_GIFT_PACK,//礼包
+};
+enum
+{
+	STAR_LOOK=0,//观星
+	STAR_EQUIP,//装备
+	STAR_PACK,//背包
+};
+enum
+{
+	FIGHT_WIN=1,
+	FIGHT_LOSE,	
+};
+enum
+{
+	GIFT_UNRECEIVE=0,//不可领取
+	GIFT_CAN_RECEIVE,//可领取
+	GIFT_RECEIVEED,//已领取
+};
+enum
+{
+	W_TYPE_CLOUDY=0,//多云 无效果
+	W_TYPE_FINE,//晴天
+	W_TYPE_RAIN,//雨
+	W_TYPE_SNOW,//雪
+	W_TYPE_BRUME,//雾
+};
+enum
+{
+	G_ID_MOVEITEM,
+};//
+
+//enum
+//{
+//	ZORDER_MIN = -1,
+//	//ZORDER_MAX = 2000,
+//	ZORDER_MAX = 13,
+//};//Z轴极值
+
+enum{
+	SCRIPT_ID_NULL = 0,
+	SCRIPT_ID_SAY,
+	SCRIPT_ID_SETSITE,
+	SCRIPT_ID_ADDNPC,
+	SCRIPT_ID_SETDIR,
+	SCRIPT_ID_MOVETO,
+	SCRIPT_ID_DELNPC,
+	SCRIPT_ID_SETSCRIPT,
+	SCRIPT_ID_STOPSAY,
+	SCRIPT_ID_OPENFUNCTION,
+	SCRIPT_ID_MISSION,
+	SCRIPT_ID_OVER,
+	SCRIPT_ID_GUIDE,
+};//SCRIPT_ID;
+
+enum{
+	MAP_TYPE_SINGLE=0,//单图
+	MAP_TYPE_SINGLECYC,//单图循环
+	MAP_TYPE_MULTI,//多图
+	MAP_TYPE_MULTICYC,//多图循环
+
+	// 	MAP_TYPE_ATLAS,//副本地图
+// 	MAP_TYPE_WORLD,//世界地图
+// 	MAP_TYPE_COMMONFIGHT,//普通战斗地图
+// 	MAP_TYPE_BOSSFIGHT,//boss战斗地图
+};//MAP_TYPE;
+
+
+enum{
+	ACTOR_TYPE_ROLE = 0,//主角--玩家
+	ACTOR_TYPE_PARTNER,//伙伴
+	ACTOR_TYPE_WARPET,//战宠
+	ACTOR_TYPE_NPC,//npc
+	ACTOR_TYPE_FIGHTNPC,//npc
+	ACTOR_TYPE_OTHER,//其他玩家
+};//ACTOR_TYPE;
+
+
+enum{
+	WEAPON_TYPE_KNIFE = 0,//刀
+	WEAPON_TYPE_AXE,//斧
+	WEAPON_TYPE_GUN,//枪
+	WEAPON_TYPE_CANNON,//炮
+
+};//WEAPON_TYPE;
+
+enum{
+	ACTOR_ACTION_STAND = 0,//站立 
+	ACTOR_ACTION_MOVE,//移动
+	ACTOR_ACTION_OTHER,//其他
+	ACTOR_ACTION_FIGHTSTAND,//站立//
+	ACTOR_ACTION_SPRINT,//冲刺
+	ACTOR_ACTION_ATTACK,//攻击
+    ACTOR_ACTION_SKILL,//技能
+	ACTOR_ACTION_UNATTACK,//挨打
+	ACTOR_ACTION_DIE,//死亡
+	ACTOR_ACTION_STATE,//状态
+//	ACTOR_ACTION_VIC,//胜利//
+
+};//ACTOR_ACTION;
+
+enum{
+//	FIGHT_STATE_DETACH=0,//战斗前分离
+	FIGHT_STATE_ACTORINTO,//角色进入
+	FIGHT_STATE_READY,//角色准备
+	FIGHT_STATE_BUFSKILL,//被动技能
+	FIGHT_STATE_MOVE,    //移动
+	FIGHT_STATE_PAUSE,   //等待运动结束
+	FIGHT_STATE_ATTACK,//角色攻击
+	FIGHT_STATE_SKILLPAUSE,//等待技能结束
+	FIGHT_STATE_SKILLEND,//技能移动结束
+	FIGHT_STATE_UNATTACK,//受击
+//	FIGHT_STATE_ATTACKSKILL,//技能攻击
+//	FIGHT_STATE_ATTACKED,//被攻击伙伴状态
+//	FIGHT_STATE_ATTACK;//攻击伙伴状态
+	FIGHT_STATE_DIE,//死亡
+	FIGHT_STATE_CURRENTSTATE,
+	FIGHT_STATE_VIC,//胜利
+	FIGHT_STATE_END,//结束
+
+};//FIGHT_STATE;
+
+enum
+{
+	DIALOG_TYPE_SAY=0,
+	DIALOG_TYPR_SELECT,
+};//DialogType
+
+enum
+{
+    /*public static final byte*/ MISSIONSTATE_NOREC0=0,//未接
+    /*public static final byte*/ MISSIONSTATE_YESREC1=1,//已接
+    /*public static final byte*/ MISSIONSTATE_FINISH2=2,//已达标
+    /*public static final byte*/ MISSIONSTATE_OVER3=3,//完成
+};
+enum
+{
+    /*public static final byte*/ EQUIPSITE_HAND1=-1,//
+	/*public static final byte*/ EQUIPSITE_HEAD2=-2,//
+	/*public static final byte */EQUIPSITE_BODY3=-3,//
+	/*public static final byte*/ EQUIPSITE_FOOT4=-4,//
+	/*public static final byte*/ EQUIPSITE_PARTS5=-5,//
+	/*public static final byte*/ EQUIPSITE_PARTS6=-6,//
+
+};
+enum
+{
+	 G_MENU_ROLE=0,//主角
+	 G_MENU_PACK,//背包
+	 G_MENU_RECRUIT,//招募界面
+     G_MENU_PERFECT,//统御	
+	 G_MENU_BATTLE,//布阵
+	 G_MENU_EQUIP,//装备
+	 G_MENU_ACTIVE,//活跃度 
+	 G_MENU_STARLOOK,//观星台
+	 G_MENU_SHOOTARROW,//百步穿杨
+	 G_MENU_SKYBOOK,//天书院
+	 G_MENU_ARENA,//比武场
+	 G_MENU_BARRACKS,//兵营	 
+	 G_MENU_HIDEEQUIP,//藏兵阁
+	 G_MENU_SEQUIP,//神器	
+	 G_MENU_CULTIVATE,//培养
+	 G_MENU_LOGIN,//登陆
+	 G_MENU_REPETITION,//副本
+
+	 G_MENU_FIGHT,//战斗
+
+	 G_MENU_SYSTEMSET, //系统设置
+	 G_MENU_ONLINE,//在线奖励
+	 G_MENU_GETNOGETITEM,//招领
+	 G_MENU_GETRMB,//招领
+
+	 G_MENU_DRILL,//训练	 
+     G_MENU_STAR,//星辰守护 
+	 G_MENU_STAREXCHANGE,//星辰兑换	 
+	 G_MENU_STRENGTHEN,//强化
+     //G_MENU_REPETITION,//副本
+	 
+	 
+	 G_MENU_ADD,//属性加成
+	 
+	 G_MENU_SKILL,//技能
+	 G_MENU_SEIZE,//抢夺
+		 
+	 G_MENU_QUIT, //返回到UI
+	 G_MENU_CHAT,//聊天
+	 G_MENU_FRIEND,//好友
+	 G_MENU_HEROES,//英豪谱
+	 G_MENU_RANKINGS,//排行榜
+	 G_MENU_DEMONSTATION,//斩妖台
+	 G_MENU_MOUNT,//坐骑系统
+	 G_MENU_SWEEP,//扫荡
+	 
+	 G_MENU_VIPRECHARGE, //VIP充值
+
+	 G_MENU_FIGHTRESULT, //战斗结果
+	 G_MENU_GUIDE,//强制教学
+	 G_MENU_FEEDBACK,//玩儿家反馈
+};
+enum
+{
+    FUNCTION_ROLE=100,//角色
+	FUNCTION_PACK=101,//背包
+	FUNCTION_RECRUIT=102,//招募
+	FUNCTION_PERFECT=103,//统御
+	FUNCTION_BATTLE=104,//布阵
+	FUNCTION_EQUIP=105,//装备  冶炼
+	FUNCTION_EVERYDAY=106,//活跃
+	FUNCTION_LOOKSTAR=107,//观星
+	FUNCTION_SHOOTARROW=108,//射箭
+	FUNCTION_PAPERWAR=109,//纸上
+	FUNCTION_ARENA=110,//比武
+	FUNCTION_BARRACK=111,//兵营 
+	FUNCTION_HIDEEQUIP=112,//藏兵
+	FUNCTION_SEQUIP=113,//神器
+    FUNCTION_CULTIVATE=114,//培养
+    FUNCTION_LOGIN=115,//登陆
+	FUNCTION_REPETITION=116,//副本战斗
+    FUNCTION_ONLINE=119,//在线奖励
+	FUNCTION_GETNOGETITEM=120,//招领
+    FUNCTION_GETRMB=121,//领元宝
+	FUNCTION_TOP=122,//排行榜
+	FUNCTION_FRIEND=123,//好友	
+	FUNCTION_TITLE=124,//称号
+
+};
+enum{
+    /*public static final byte*/ SOLDIERTYPE_INFANTRY0=0,//步兵
+	/*public static final byte*/ SOLDIERTYPE_ARCHER1=1,//弓兵
+	/*public static final byte*/ SOLDIERTYPE_SOWAR2=2,//骑兵
+	/*public static final byte*/ SOLDIERTYPE_ADVISER3=3,//谋士
+};
+enum{
+	/*public static final byte*/ L4_HP0=0,//生命
+	/*public static final byte*/ L4_ATTACK1=1,//攻击
+	/*public static final byte*/ L4_DEFENCE2=2,//防御
+	/*public static final byte*/ L4_ATTACKSPEED3=3,//攻速
+};
+enum{
+	/*public static final byte*/ EQUIP_ATT0=0,//生命  攻击
+	/*public static final byte*/ EQUIP_DEF1=1,//攻击  防御
+	/*public static final byte*/ EQUIP_SP2=2,//防御   攻速
+	/*public static final byte*/ EQUIP_HP3=3,//攻速   生命 
+};
+enum
+{
+    DEFINETYPE_NO0=0,
+	DEFINETYPE_YES1=1,
+
+};
+enum
+{
+    PARTNERTYPE_ROLE0=0,//主角
+	PARTNERTYPE_GENERAL1=1,//将
+	PARTNERTYPE_SOLDIER2=2,//兵
+	PARTNERTYPE_NPC3=3,//敌人
+
+};
+enum
+{
+    ROLETYPE_NORMAL0=0,//普通
+	ROLETYPE_BATTLE1=1,//阵法
+	ROLETYPE_QUEER2=2,//奇术
+	ROLETYPE_WARART3=3,//谋略
+
+};
+enum
+{
+    SEXTYPE_MAN0=0,
+	EXTYPE_WOMAN1=1,
+};
+enum
+{
+    TYPE_MONEY1=1,//金币
+	TYPE_RMB2=2,//RMB
+	TYPE_EXP3=3,//经验
+    TYPE_ITEM4=4,//道具
+    TYPE_REPAIR5=5,//修为
+    TYPE_RENOWN6=6,//声望
+    TYPE_ENERGY7=7,//体力
+    TYPE_SEQUIPCHIP8=8,//碎片
+};
+enum
+{
+    ISLAP_NO0=0,//不叠加
+    ISLAP_YES1=1,//叠加
+
+};
+enum
+{
+    RLAYERSTATE_NOOPEN0=0,//未开
+	RLAYERSTATE_YESOPEN1=1,//已开
+	RLAYERSTATE_PASS2=2,//通过
+
+};
+enum
+{
+	ERRORSTATE_ERROR0=0,//错误
+	ERRORSTATE_OK1=1,//成功
+	ERRORSTATE_PASSWORDERROR2=2,//密码错误
+	ERRORSTATE_USERNAMELONG3=3,//用户名太长
+	ERRORSTATE_USERNAMEERROR4=4,//用户名不合法
+	ERRORSTATE_USERBE5=5,//用户已存在
+	ERRORSTATE_USERNOBE6=6,//用户不存在
+	ERRORSTATE_PARTNERNOBE7=7,//伙伴不存在
+	ERRORSTATE_MONEYNO8=8,//金币不足
+	ERRORSTATE_RMBNO9=9,//不足
+	ERRORSTATE_ITEMNO10=10,//材料不足
+	ERRORSTATE_ENERGYNO11=11,//体力不足
+	ERRORSTATE_JADENUMNO12=12,//玉牌数量不足
+	ERRORSTATE_NOPARTNER13=13,//没有可招募伙伴
+	ERRORSTATE_GETSOLDIERSOUL14=14,//得到兵魂
+	ERRORSTATE_GETGENERALSOUL15=15,//得到将魂
+	ERRORSTATE_NOSOLDIERSOUL16=16,//兵魂不足
+	ERRORSTATE_NOGENERALSOUL17=17,//将魂不足
+	ERRORSTATE_ROLENOBATTLE18=18,//主角不能下阵
+	ERRORSTATE_ROLENODEL19=19,//主角不能分解
+	ERRORSTATE_ROLELEVELNO20=20,//主角等级不足
+	ERRORSTATE_PERFECTNO21=21,//统御不足
+	ERRORSTATE_NOMOVE22=22,//不可移动
+	ERRORSTATE_NAMENO23=23,//名字重复
+	ERRORSTATE_NOMISSIONOVER24=24,//没有完成的任务
+	ERRORSTATE_NOONEP25=25,//没有第一个伙伴
+	ERRORSTATE_NORLC026=26,//副本层次数是0
+	ERRORSTATE_LOOKSTARMAX27=27,//观星台已满
+	ERRORSTATE_SOULPACKMAX28=28,//星魂包已满
+	ERRORSTATE_SOULNOPICK29=29,//没有可拾取
+	ERRORSTATE_SOULMAX30=30,//星魂装备已满
+	ERRORSTATE_LEVELNO31=31,//等级不足
+	ERRORSTATE_ROLESKILLNO32=32,//主角技能没有
+	ERRORSTATE_REPAIRNO33=33,//修为不足
+	ERRORSTATE_ROLESKILLREP34=34,//技能重复
+	ERRORSTATE_NOPARTNER35=35,//没有伙伴
+	ERRORSTATE_BATTLENOPARTNER36=36,//阵上没有伙伴
+	ERRORSTATE_NOMINTUTE37=37,//不足2分钟
+	ERRORSTATE_NORENOWN38=38,//声望不足
+	ERRORSTATE_NODRILL39=39,//已训练过
+	ERRORSTATE_NOCHIP40=40,//碎片不足
+	ERRORSTATE_FUNCOPEN41=41,//功能已开启
+	ERRORSTATE_FUNCNOOPEN42=42,//功能未开启
+	ERRORSTATE_SCRIPTBEOVER43=43,//脚本已完成
+	ERRORSTATE_SHOOTARROWNUMMAX44=44,//射箭次数最大
+    ERRORSTATE_ARENALEIOK45=45,//擂台占领成功
+    ERRORSTATE_UPRANKMAX46=46,//升星最大
+	ERRORSTATE_REFNO47=47,//刷新用完
+	ERRORSTATE_GIFTNO48=48,//活跃礼包不可领
+	ERRORSTATE_GIFTBE49=49,//活跃礼包已领
+	ERRORSTATE_RSKILLLEVELMAX50=50,//主角技能等级最高
+	ERRORSTATE_SKILLBOOKNO51=51,//技能书不足
+	ERRORSTATE_PLAYERBEVIC52=52,//敌人已胜利
+	ERRORSTATE_LEVELNOROLELEVEL53=53,//不能超过主角等级
+	ERRORSTATE_HLAYERBEPASS54=54,//藏兵阁敌人已通过
+	ERRORSTATE_SKYBOOKMAXFIGHTNUM=55,//天书院最大战斗次数
+	ERRORSTATE_SOULTYPEONE56=56,//星魂属性相同
+	ERRORSTATE_ARENAFIGHTMAX57=57,//比武次数最大
+	ERRORSTATE_NOME58=58,//不能自己
+	ERRORSTATE_NOLEIDI59=59,//不能比自己擂台低
+	ERRORSTATE_NOBUYENERGYNUM60=60,//买体力次数用完
+	ERRORSTATE_NOTIME61=61,//没到
+	ERRORSTATE_PACKNOPOS62=62,//背包满
+	ERRORSTATE_SEQUIPLEVELMAX63=63,//神器等级最大
+	ERRORSTATE_EXPSOULNOWEAR64=64,//经验命格不能装备
+	ERRORSTATE_EXPSOULNOFUSE65=65,//经验命格不能融合
+	ERRORSTATE_SOULNOFUSE66=66,//没有可融合星魂
+	ERRORSTATE_NOGETITEM67=67,//没有未领道具
+	ERRORSTATE_SOULLEVELMAX68=68,//星魂等级最大
+	ERRORSTATE_NOVER69=69,		//版本不对
+	ERRORSTATE_NOJOIN70=70,		//不可进入
+    ERRORSTATE_NOOPENLAYER71=71,//副本未开启
+	ERRORSTATE_SOULNOFASE72=72,	//没有可融合星魂
+
+
+};
+enum
+{
+    SCRIPT_VIEW=50,
+	G_UI_ROLE,
+	G_UI_MENU,
+	G_UI_BUTTON,
+	G_UI_TSK,
+	G_UI_MESSAGE,
+	G_UI_LIMIT,
+	CHARGE_TAG,
+};
+enum
+{
+    SM_OK=0,
+	SM_NO,
+	SM_OK_NO,
+	SM_SAVE_NO,
+	SM_FIGHT_END,
+};
+enum
+{
+    SOULTYPE_MAXHP0=0,//最大生命
+    SOULTYPE_ATTACK1=1,//攻击
+	SOULTYPE_DEFENCE2=2,//防御
+	SOULTYPE_ATTACKSPEED3=3,//攻速
+	SOULTYPE_CRIT4=4,//暴击
+	SOULTYPE_OCRIT5=5,//抗暴
+	SOULTYPE_ADDCRITPOWER6=6,//加暴倍
+	SOULTYPE_SPARECRITPOWER7=7,//减暴倍
+	SOULTYPE_ADDHURT8=8,//加伤
+	SOULTYPE_SPAREHURT9=9,//免伤	
+	SOULTYPE_MONEY10=10,//铜币	
+	SOULTYPE_EXP11=11,//经验	
+
+};
+
+enum
+{
+	TYPE_NORMAL=0,//正常
+    TYPE_FIGHT,//战斗
+	TYPE_ARENA,//比武
+	TYPE_ARENALEI,//擂台
+	TYPE_SKYBOOK,//天书院
+	TYPE_HIDEEQUIP,//藏兵阁
+	TYPE_SEIZE,//抢夺
+	//TYPE_DEMONSTATION,//斩妖台
+};
+enum
+{
+    ROLE_BOY=5600,//男主角 半身像ID
+	ROLE_GIRL,//女主角 半身像ID
+};
+enum
+{
+    LEFT=0,//提示框在左
+	RIGHT=1,//提示框在右
+};
+enum
+{
+    SERVER_STATE_NORMAL0=0,//服务器状态  普通
+	SERVER_STATE_NEW1=1,//服务器状态  新服
+	SERVER_STATE_FIRE2=2,//服务器状态  火爆
+	SERVER_STATE_REPAIR3=3,//服务器状态  维护
+};
+enum
+{
+    BARRACK_HP0=0,//生命
+	BARRACK_ATTACK1=1,//攻击
+	BARRACK_DEFENCE2=2,//防御
+	BARRACK_SP3=3,//攻速
+	BARRACK_CIRT4=4,//暴击
+	BARRACK_OCIRT5=5,//抗暴
+	BARRACK_DODGE6=6,//闪避
+	BARRACK_SHOTPRO7=7,//命中
+};
+enum
+{
+    EFFECTSTATE_NORMAL0=0,//正常
+	EFFECTSTATE_ATTACK1=1,//攻击
+	EFFECTSTATE_DEFENCE2=2,//防御
+	EFFECTSTATE_ATTACKSPEED3=3,//速度
+	EFFECTSTATE_CRIT4=4,//暴击
+	EFFECTSTATE_OCRIT5=5,//抗暴
+	EFFECTSTATE_REPLY6=6,//回复
+	EFFECTSTATE_NODIE7=7,//无敌
+	EFFECTSTATE_POISON8=8,//中毒
+	EFFECTSTATE_SWIM9=9,//眩晕
+	EFFECTSTATE_ADDHURT10=10,//加伤
+	EFFECTSTATE_SPAREHURT11=11,//免伤	
+	EFFECTSTATE_DODGE12=12,//闪避
+	EFFECTSTATE_SHOTPRO13=13,//命中
+};
+enum
+{
+    ARENA_BACK_ID=1703,//比武场背景地图id
+	HIDEEQUIP_BACK_ID=1704,//藏兵阁背景地图id
+	SKYBOOK_BACK_ID=1705,//天书院北京地图id
+	SEIZE_BACK_ID=1706,//抢夺背景地图id
+};
+enum
+{   //被攻击类型
+    UATTACKTYPE_NORMALO=0,//命中
+	UATTACKTYPE_CIRT1=1,//暴击
+	UATTACKTYPE_DODGE2=2,//闪避
+
+};
+enum
+{
+    TEAMTYPE_ATTACK1=1,//攻击队伍
+	TEAMTYPE_UATTACK2=2,//被攻击队伍
+};
+enum
+{
+	CHANNEL_LOCAL_ID=0,
+    
+};
+enum
+{
+    PEOPLE_NUM0=0,
+    PEOPLE_NUM1=20,
+    PEOPLE_NUM2=50,
+};
+enum
+{
+    CHAT_WORLD=1,
+	CHAT_FRIENDS,
+	CHAT_SYSTEM,
+};
+#endif
